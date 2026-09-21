@@ -1,0 +1,4 @@
+entity,ref_date,market_risk,counterparty_risk,life_uw_risk,health_uw_risk,nonlife_uw_risk,diversification,bscr,operational_risk,lac_deferred_taxes,scr,source,quality
+PV_GROUP,2022-12-31,2253883.64,300285.76,4750933.58,113796.86,40175.55,-1573938,5885137,675079,-1504224,5055992,SFCR_2023 E.2 Group SCR and MCR tabella comparativa,O (LAC DT derivato: BSCR+op-scr)
+PV_SOLO,2022-12-31,2300953,288692,4750934,13862,0,-1482140,5872301,663774,-1569658,4967417,SFCR_2023 E.2 tabella SCR solo-entity,O
+PV_SOLO,2021-12-31,,,,,,,4396571,9424,-1428752,4441175,SFCR_2021 E.2 p.161 (SCR ex add-on 4396571 + add-on 44604),O
