@@ -1,0 +1,35 @@
+field,definition,table,unit,type,O_D_E,source,measurement_note
+company_id,Identificativo univoco compagnia,company_sfcr,,string,O,Manuale,
+company_name,Denominazione compagnia,company_sfcr,,string,O,SFCR,
+report_date,Data di riferimento del bilancio,company_sfcr,date,date,O,SFCR,
+bel,Best Estimate of Liabilities,company_sfcr,mln_eur,float,O,SFCR S.02.01.02 / S.12.01.01,Se dedotto TP-RM marcare [E]
+own_funds,Fondi propri ammissibili a copertura SCR,company_sfcr,mln_eur,float,O,SFCR S.23.01.01,
+scr,Requisito Patrimoniale di Solvibilita,company_sfcr,mln_eur,float,O,SFCR S.25.01.21,
+solvency_ratio,Ratio own funds / SCR,company_sfcr,ratio,float,O/D,SFCR sezione E,
+btp_share,Quota attivi in Titoli di Stato italiani,company_sfcr,fraction_0_1,float,E,SFCR S.02.01 + sezione C.2,Observed where disclosed; otherwise estimated from sovereign aggregate
+asset_duration,Duration modificata stimata degli attivi,company_sfcr,years,float,E,Sezione C.2 / stima esterna,Metodo di stima esterno dichiarato; mai dal cashflow_builder (circolarita')
+liability_duration,Duration modificata stimata delle passivita,company_sfcr,years,float,E,Sezione C.2 / stima esterna,Idem
+cash_buffer,Riserve liquide (cassa + depositi),company_sfcr,mln_eur,float,E,SFCR S.02.01.02,Proxy da cash and cash equivalents
+source_doc,File di provenienza del dato,company_sfcr,,string,O,,
+source_page,Pagina/sezione di provenienza,company_sfcr,,string,O,,
+quality_flag,Stato qualita del record,company_sfcr,,string,D,,complete / partial / synthetic
+obs_date,Data osservazione,macro_series,date,date,O,EIOPA/BCE/ISTAT,Ultimo giorno lavorativo per coerenza con ref date EIOPA
+country,Codice paese,macro_series,,string,O,,
+series_name,Nome serie,macro_series,,string,O,,es. eiopa_rf_10y / btp_bund_spread / inflation_yoy
+value,Valore serie,macro_series,decimal,float,O,,Tassi in decimale; spread in bps
+source,Fonte primaria,macro_series,,string,O,,EIOPA / BCE / ISTAT / MEF
+obs_flag,Classificazione O/D/E,macro_series,,string,O,,Valori singoli in {O; D; E}
+quality_note,Stato verifica valore,macro_series,,string,D,,verified / approx / synthetic
+scenario_id,Identificativo scenario,stress_scenarios,,string,O,,
+scenario_date,Data shock,stress_scenarios,date,date,O,,
+delta_rf_bps,Shift parallelo equivalente curva rf,stress_scenarios,bps,float,E,Da curve EIOPA osservate,
+spread_btp_bps,Shock spread BTP-Bund,stress_scenarios,bps,float,O,Mercato,
+inflation_yoy,Inflazione tendenziale,stress_scenarios,pct,float,O,ISTAT NIC,
+lapse_gamma,Sensibilita comportamentale riscatti,stress_scenarios,multiplier,float,E,Calibrazione/Letteratura,Sensitivity analysis obbligatoria
+label,Etichetta scenario,stress_scenarios,,string,O,,
+cf_asset,Flusso di cassa atteso attivo anno t,synthetic_cashflows,mln_eur,float,E,cashflow_builder,
+cf_liab_base,Flusso passivo base anno t,synthetic_cashflows,mln_eur,float,E,cashflow_builder,
+of_static,Own funds post-shock motore lineare,results_backtest,mln_eur,float,D,static_engine,
+of_dynamic,Own funds post-shock motore M2M,results_backtest,mln_eur,float,D,dynamic_engine + liquidity_engine,
+blind_spot_delta,Differenza OF_stat - OF_dyn,results_backtest,mln_eur,float,D,metrics,
+c_liq,Costo stimato fire sales,results_backtest,mln_eur,float,D,liquidity_engine,
