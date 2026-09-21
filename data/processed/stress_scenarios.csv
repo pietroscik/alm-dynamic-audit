@@ -1,0 +1,4 @@
+scenario_id,scenario_date,delta_rf_bps,spread_btp_bps,inflation_yoy,lapse_gamma,label
+BASE,2022-06-30,0.0,0.0,8.0,0.00,Baseline
+Q3_2022,2022-09-30,250.0,230.0,8.9,0.35,Q3 2022
+Q4_2022,2022-12-31,320.0,235.0,11.8,0.40,Q4 2022

@@ -1,0 +1,32 @@
+# Template di estrazione manuale dai PDF SFCR (Layer 2 interim).
+# UNA RIGA PER CAMPO-COMPAGNIA-ANNO. Il valore va riportato ESATTAMENTE
+# come nel documento. Conversioni in mln_eur/frazioni SOLO nel passaggio
+# interim -> processed.
+#
+# Coordinate QRT: usare l'ETICHETTA della riga come chiave primaria
+# (i codici R/C variano tra versioni dei template e spesso non sono
+# stampati nei PDF); il codice e' conferma a posteriori.
+# Se il valore non esiste nel documento: lasciare vuoto il campo
+# reported_value, source_page = "n.d.", e spiegare in extraction_note.
+#
+# Compagnie: PVG = Poste Vita S.p.A. (Single SFCR, perimetro vita).
+#            CAND2 = seconda compagnia da scegliere PRIMA dell'apertura
+#            dei PDF (Arca Vita o Intesa Sanpaolo Vita), razionale nel
+#            README. Allineamento date: ref date EIOPA = ultimo giorno
+#            lavorativo (es. dic 2022 -> 2022-12-30).
+
+company_id,report_date,field,reported_value,unit,source_doc,source_page,qrt_template,row_label,row_code,col_code,extraction_note
+PVG,2021-12-31,own_funds,,euro,sfcr_pv_2021.pdf,,S.23.01.01,Total eligible own funds to meet the SCR,R0290,C0010,Tier1+Tier2 ammissibili
+PVG,2021-12-31,scr,,euro,sfcr_pv_2021.pdf,,S.25.01.21,Solvency Capital Requirement,R0220,C0100,SCR totale
+PVG,2021-12-31,solvency_ratio,,pct,sfcr_pv_2021.pdf,,S.23.01.01,Ratio of eligible own funds to SCR,R0620,C0010,verificare coerenza con sezione E del testo
+PVG,2021-12-31,tp_total,,euro,sfcr_pv_2021.pdf,,S.02.01.02,Total technical provisions,R0510,C0010,vita + index/unit linked
+PVG,2021-12-31,risk_margin,,euro,sfcr_pv_2021.pdf,,S.02.01.02,Risk margin - life,R0720,C0010,alternativa: S.12.01.01
+PVG,2021-12-31,bel,,euro,sfcr_pv_2021.pdf,,S.12.01.01,Best estimate of liabilities,R0010,C0020,se dedotto TP-RM marcare [E] in note
+PVG,2021-12-31,sovereign_it,,euro,sfcr_pv_2021.pdf,,S.02.01.02+narrativa,Government bonds (quota IT),R0140,C0010,S.02 aggrega tutti i sovrani: quota IT dalla sezione C.2
+PVG,2021-12-31,investments_total,,euro,sfcr_pv_2021.pdf,,S.02.01.02,Total investments,R0070,C0010,denominatore btp_share
+PVG,2021-12-31,cash_and_deposits,,euro,sfcr_pv_2021.pdf,,S.02.01.02,Cash and cash equivalents,R0410,C0010,proxy cash_buffer
+PVG,2021-12-31,asset_duration,,years,sfcr_pv_2021.pdf,,C.2 narrazione,modified duration attivi,,,se assente: stima esterna [E] con metodo in note
+PVG,2021-12-31,liability_duration,,years,sfcr_pv_2021.pdf,,C.2 narrazione,modified duration passivi,,,idem
+PVG,2021-12-31,va_flag,,testo,sfcr_pv_2021.pdf,,C.2/D.2,uso Volatility Adjustment si/no,,,piu eventuali transitionals art. 308-quater/quinquies
+# --- ripetere il blocco per PVG 2022-12-31 (ref EIOPA 2022-12-30) ---
+# --- ripetere il blocco per CAND2 2021 e 2022 dopo la scelta ---

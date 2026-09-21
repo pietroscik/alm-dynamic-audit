@@ -1,0 +1,50 @@
+# ATTENZIONE: dataset PILOTA SINTETICO per il dry-run della pipeline.
+# quality_note:
+#   verified   = confermato su fonte primaria citabile
+#   approx     = ricostruzione, da verificare su fonte primaria
+#   synthetic  = valore interpolato/ricostruito, NON osservato: solo dry-run
+# Prima del backtest definitivo TUTTE le righe eiopa_rf_*y devono
+# provenire dai file Excel EIOPA (eiopa_loader.py) e le serie IT
+# da Borsa Italiana / ISTAT. Sostituire, non affiancare.
+
+obs_date,country,series_name,value,source,obs_flag,quality_note
+2021-12-31,IT,btp_bund_spread,135,BCE/Borsa Italiana,O,approx
+2021-12-31,IT,inflation_yoy,3.9,ISTAT,O,approx
+2021-12-31,EA,eiopa_rf_1y,-0.0062,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_2y,-0.0055,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_3y,-0.0048,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_5y,-0.0035,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_7y,-0.0025,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_10y,-0.0015,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_15y,0.0005,EIOPA,O,synthetic
+2021-12-31,EA,eiopa_rf_20y,0.0015,EIOPA,O,synthetic
+2022-06-30,IT,btp_bund_spread,204,BCE/Borsa Italiana,O,approx
+2022-06-30,IT,inflation_yoy,8.0,ISTAT,O,approx
+2022-06-30,EA,eiopa_rf_1y,0.0055,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_2y,0.0095,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_3y,0.0125,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_5y,0.0165,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_7y,0.0190,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_10y,0.0210,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_15y,0.0220,EIOPA,O,synthetic
+2022-06-30,EA,eiopa_rf_20y,0.0230,EIOPA,O,synthetic
+2022-09-30,IT,btp_bund_spread,251,MEF,O,verified
+2022-09-30,IT,inflation_yoy,8.9,ISTAT,O,verified
+2022-09-30,EA,eiopa_rf_1y,0.0210,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_2y,0.0250,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_3y,0.0280,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_5y,0.0305,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_7y,0.0320,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_10y,0.0335,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_15y,0.0340,EIOPA,O,synthetic
+2022-09-30,EA,eiopa_rf_20y,0.0345,EIOPA,O,synthetic
+2022-12-31,IT,btp_bund_spread,209,BCE/Borsa Italiana,O,approx
+2022-12-31,IT,inflation_yoy,11.3,ISTAT,O,approx
+2022-12-31,EA,eiopa_rf_1y,0.0310,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_2y,0.0325,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_3y,0.0330,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_5y,0.0330,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_7y,0.0330,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_10y,0.0335,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_15y,0.0340,EIOPA,O,synthetic
+2022-12-31,EA,eiopa_rf_20y,0.0340,EIOPA,O,synthetic

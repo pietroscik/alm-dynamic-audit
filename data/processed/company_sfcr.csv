@@ -1,0 +1,14 @@
+# ATTENZIONE: dataset PILOTA SINTETICO per il dry-run della pipeline.
+# I valori own_funds/scr NON provengono dagli SFCR: nessuna fonte o
+# pagina citabile. COMP2 e' una compagnia fittizia di confronto.
+# Il campo bel e' mancante in tutte le righe: il quality check lo
+# segnala come ERROR, correttamente.
+# Prima del backtest definitivo: sostituire con l'estrazione reale dal
+# template data/interim/company_sfcr_interim.csv.
+# unita': mln_eur per importi, anni per duration, frazione 0-1 per share
+
+company_id,company_name,report_date,bel,own_funds,scr,solvency_ratio,btp_share,asset_duration,liability_duration,cash_buffer,source_doc,source_page,quality_flag
+PVG,Poste Vita (pilota),2021-12-31,,10250.0,3750.0,2.730,0.45,6.5,8.2,1200.0,SYNTHETIC,n.d.,synthetic
+PVG,Poste Vita (pilota),2022-12-31,,9800.0,3038.0,3.226,0.42,5.8,7.5,1450.0,SYNTHETIC,n.d.,synthetic
+COMP2,Compagnia 2 (pilota),2021-12-31,,8950.0,3377.0,2.650,0.38,6.1,7.9,980.0,SYNTHETIC,n.d.,synthetic
+COMP2,Compagnia 2 (pilota),2022-12-31,,8771.889,3049.752,2.876,0.35,5.5,7.1,1100.0,SYNTHETIC,n.d.,synthetic
