@@ -1,0 +1,20 @@
+[project]
+name = "alm-dynamic-audit"
+version = "0.1.0"
+description = "Static vs dynamic ALM framework for Italian life insurers (Solvency II)"
+requires-python = ">=3.12"
+dependencies = [
+  "polars>=1.0",
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "streamlit>=1.30",
+  "plotly>=5.18",
+  "pyarrow>=14.0",
+  "fastexcel>=0.10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "matplotlib>=3.8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
