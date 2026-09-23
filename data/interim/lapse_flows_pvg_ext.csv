@@ -1,0 +1,18 @@
+metric,entity,year,value,unit,tag,source_doc,source_section
+surrenders_paid,PVG_group,2019,3500,mln_eur,E-derived,SFCR PVG 2020 (doc ca788307),Exec summary (3.2 mld 2020, -0.3 vs 2019)
+surrenders_paid,PVG_group,2020,3200,mln_eur,O-text,SFCR PVG 2020 (doc ca788307),Exec summary - Claims outflows
+surrenders_paid,PVG_group,2021,4169.5,mln_eur,E-derived,SFCR PVG 2022 (doc 54ddfa37),5. Operating results (+25.8% 2022 inverso)
+surrenders_paid,PVG_group,2022,5245.2,mln_eur,O,SFCR PVG 2022 (doc 54ddfa37),5. Operating results - Settlements
+surrenders_paid,PVG_group,2023,6945,mln_eur,E-derived,SFCR PVG 2023 (doc 82db0ff2),Exec summary (lapses +1.7 bln vs 2022)
+surrender_ratio_opening_provisions,PVG_group,2021,3.1,pct,O,SFCR PVG 2022 (doc 54ddfa37),5. Operating results
+surrender_ratio_opening_provisions,PVG_group,2022,3.6,pct,O,SFCR PVG 2022 (doc 54ddfa37),5. Operating results
+lapse_frequency_avg_reserves,PVG_group,2022,3.5,pct,O,SFCR PVG 2023 (doc 82db0ff2),Exec summary (nota 2: lapses / riserve tecniche medie)
+lapse_frequency_avg_reserves,PVG_group,2023,4.4,pct,O,SFCR PVG 2023 (doc 82db0ff2),Exec summary
+lapse_frequency_market_avg,market,2023,10.6,pct,O-text,SFCR PVG 2023 (doc 82db0ff2),Exec summary (fonte Ania Trends n.4 2024)
+spread_btp_bund_yearend,market,2021,135,bps,E-derived,Arca Vita SFCR 2022 (doc ba41f03c),A.3 (BTP 4.65% +346bps; Bund 2.54% +270bps)
+spread_btp_bund_yearend,market,2022,211,bps,O-text,Arca Vita SFCR 2022 (doc ba41f03c),A.3 (BTP 4.65% vs Bund 2.54%)
+spread_btp_bund_yearend,market,2022_alt,214,bps,O-text,Arca Vita SFCR 2023 (doc 41d2ff74),A.3 (spread da 214 a 166 pb)
+spread_btp_bund_yearend,market,2023,166,bps,O-text,Arca Vita SFCR 2023 (doc 41d2ff74),A.3
+gamma_contemporaneous,PVG_group,2021_2022,19.7,per_unit_spread,E-model,models/lapse_gamma_stability_pvg.md,ln(3.6/3.1)/0.0076
+gamma_contemporaneous,PVG_group,2022_2023,-50.9,per_unit_spread,E-model,models/lapse_gamma_stability_pvg.md,ln(4.4/3.5)/(-0.0045) - segno invertito
+gamma_lagged1,PVG_group,2022_2023,30.1,per_unit_spread,E-model,models/lapse_gamma_stability_pvg.md,ln(4.4/3.5)/0.0076
