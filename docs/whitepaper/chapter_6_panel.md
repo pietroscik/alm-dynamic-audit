@@ -36,3 +36,30 @@ DPHB), non dello shock. Ne segue che nessun coefficiente di sensibilità "di set
 stimabile senza modellare la struttura — e che ogni stress test uniforme (shift unico su
 tutte le compagnie) produce errori di segno per costruzione. È la confutazione empirica
 della prassi di settore standard.
+
+## 6.4 Poste Vita come benchmark di stress-test, non come unicum
+
+Obiezione attesa: "Poste Vita è un operatore anomalo (concentrazione sovrana, rete
+distributiva captive, base retail peculiare): perché generalizzare da un caso singolo?"
+Tre risposte, in ordine di forza.
+
+1. **La direzione dell'obiezione è invertita.** PVG è il caso *favorevole*: frequenza
+   riscatto 4,4% a fine 2023 contro una media di mercato del 10,6% [O-text, Ania Trends
+   n.4/2024, citata nel SFCR PVG 2023]. Un portafoglio che riscatta a meno della metà
+   del mercato è quello dove l'endogeneità comportamentale pesa *meno*. Se la state-
+   dependence produce gap sistematici (−18,6 / −24,2 punti) sull'operatore più prudente,
+   la vulnerabilità sugli operatori più lapse-prone è per costruzione maggiore, non minore.
+2. **L'architettura è replicabile, il parametro è locale.** Il metodo (estrazione curve
+   ufficiali, stima γ su riscatti osservati [O], specificazione lag-1 con floor) non usa
+   alcun dato proprietario PVG: applica a qualsiasi compagnia con SFCR pubblici. Il valore
+   numerico di γ resta invece specifico del portafoglio — è esattamente il punto: un
+   parametro comportamentale non è stimabile "di settore", va misurato per portafoglio
+   (§6.3).
+3. **Il pannello esiste già.** Arca Vita (+20,5pp sullo stesso shock) e le serie ISV/ISPA
+   nel cross_company_panel mostrano che la direzione dell'impatto inverte col mutare
+   della struttura: PVG è il benchmark di stress-test più severo disponibile, non la
+   regola generale. La regola generale è metodologica (state-dependence misurabile), non
+   parametrica (γ = γ_PVG).
+
+In fase di diffusione questa sezione va citata esplicitamente ogni volta che si parla di
+"estensione al sistema": l'architettura si estende, i parametri si ri-stimano.

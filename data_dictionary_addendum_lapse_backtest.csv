@@ -1,0 +1,26 @@
+metric,entity,year,value,unit,tag,source_doc,source_section,dataset_file
+surrenders_paid,PVG_group,2019,3500,mln_eur,E-derived,SFCR PVG 2020 (ca788307),Exec summary (3.2 mld 2020 -0.3 vs 2019),data/interim/lapse_flows_pvg_ext.csv
+surrenders_paid,PVG_group,2020,3200,mln_eur,O-text,SFCR PVG 2020 (ca788307),Exec summary - Claims outflows,data/interim/lapse_flows_pvg_ext.csv
+surrenders_paid,PVG_group,2021,4169.5,mln_eur,E-derived,SFCR PVG 2022 (54ddfa37),5. Operating results (+25.8% 2022 inverso),data/interim/lapse_flows_pvg_ext.csv
+surrenders_paid,PVG_group,2022,5245.2,mln_eur,O,SFCR PVG 2022 (54ddfa37),5. Operating results - Settlements,data/interim/lapse_flows_pvg_ext.csv
+surrenders_paid,PVG_group,2023,6945,mln_eur,E-derived,SFCR PVG 2023 (82db0ff2),Exec summary (lapses +1.7 bln vs 2022),data/interim/lapse_flows_pvg_ext.csv
+surrender_ratio_opening_provisions,PVG_group,2021,3.1,pct,O,SFCR PVG 2022 (54ddfa37),5. Operating results,data/interim/lapse_flows_pvg_ext.csv
+surrender_ratio_opening_provisions,PVG_group,2022,3.6,pct,O,SFCR PVG 2022 (54ddfa37),5. Operating results,data/interim/lapse_flows_pvg_ext.csv
+lapse_frequency_avg_reserves,PVG_group,2022,3.5,pct,O,SFCR PVG 2023 (82db0ff2),Exec summary nota 2,data/interim/lapse_flows_pvg_ext.csv
+lapse_frequency_avg_reserves,PVG_group,2023,4.4,pct,O,SFCR PVG 2023 (82db0ff2),Exec summary,data/interim/lapse_flows_pvg_ext.csv
+lapse_frequency_market_avg,market,2023,10.6,pct,O-text,SFCR PVG 2023 (82db0ff2),Exec summary (Ania Trends n.4 2024),data/interim/lapse_flows_pvg_ext.csv
+mass_lapse_reinsurance_premium,PVG_group,2022,21.5,mln_eur,O,SFCR PVG 2022 (54ddfa37),5. Operating results - Other net revenue,data/interim/lapse_flows_pvg.csv
+scr_lapse_risk,PVG_group,2020,925628,th_eur,O,SFCR PVG 2021 (b60d9d3a),Risk profile - Life underwriting risk,data/interim/lapse_flows_pvg.csv
+scr_lapse_risk,PVG_group,2021,1540770,th_eur,O,SFCR PVG 2021 (b60d9d3a),Risk profile - Life underwriting risk,data/interim/lapse_flows_pvg.csv
+lapse_multiplier_gamma,PVG_group,2021_2023,19.7,per_unit_spread,E-model,models/lapse_gamma_estimate_pvg.md,ln(3.6/3.1)/0.0076 - centrale,models/lapse_gamma_estimate_pvg.md
+lapse_multiplier_gamma_band_low,PVG_group,2021_2023,19.7,per_unit_spread,E-model,models/lapse_gamma_stability_pvg.md,tab. 2,models/lapse_gamma_stability_pvg.md
+lapse_multiplier_gamma_band_high,PVG_group,2021_2023,30.1,per_unit_spread,E-model,models/lapse_gamma_stability_pvg.md,lag-1 validated out-of-sample,models/lapse_gamma_stability_pvg.md
+gamma_lag_years,PVG_group,2021_2023,1,years,E-model,models/lapse_gamma_stability_pvg.md,par. 3-4,models/lapse_gamma_stability_pvg.md
+p10_dyn_eur,portfolio_10y,2021_12_31,97.97,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing 100/(1+r10)^10,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+p10_dyn_eur,portfolio_10y,2022_12_31,73.75,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+p10_dyn_eur,portfolio_10y,2023_01_31,76.14,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+p10_dyn_eur,portfolio_10y,2024_01_31,78.33,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+p10_dyn_eur,portfolio_10y,2025_01_31,79.40,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+p10_dyn_eur,portfolio_10y,2026_01_31,75.88,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+gap_static_minus_dyn_eur,portfolio_10y,2022_12_31,-24.22,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv
+gap_static_minus_dyn_eur,portfolio_10y,2026_01_31,-22.09,eur,E-derived,data/processed/backtest_static_vs_dynamic_2021_2026.csv,repricing,data/processed/backtest_static_vs_dynamic_2021_2026.csv

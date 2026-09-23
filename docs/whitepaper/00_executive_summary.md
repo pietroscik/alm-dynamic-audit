@@ -55,6 +55,18 @@ Il gap non si chiude mai; nel 2026, col lungo di nuovo a 2,80%, si allarga di nu
 - Riproducibilità: notebooks 01-09, scripts (dry-run di default), QA invarianti con exit≠0
   (verify_dataset.py), pytest.
 
+## Ambito di generalizzazione (da leggere prima di citare)
+
+Poste Vita è il benchmark di stress-test, non la regola generale. L'operatore è anomalo sotto
+profilo distributivo e di concentrazione sovrana, ed è per questo che è il caso *favorevole*:
+riscatta a meno della metà del mercato, quindi l'endogeneità comportamentale vi pesa meno che
+altrove. Ciò che si estende al sistema è l'architettura (curve ufficiali + stima γ su dati
+pubblici + specificazione lag-1 con floor), non il valore numerico di γ, che va ri-stimato per
+portafoglio. Non affermiamo che il bilancio ufficiale sia "falso": affermiamo che è monodimensionale
+e cieco al rischio di secondo ordine. I limiti (portafoglio teorico 10y come bound superiore,
+proxy spread, due-tre osservazioni annue) sono dichiarati in Appendice D e nel capitolo 7,
+non come clausole protective ma come perimetro esplicito della validità.
+
 ## Decontestualizzazione del rischio per l'industry
 
 La stessa struttura vale per qualsiasi compagnia con passività vita tradizionali duration-negative
