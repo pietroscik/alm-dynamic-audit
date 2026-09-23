@@ -1,0 +1,13 @@
+company,engine,year,scope,eof_scr,scr,mcr,solvency_ratio,ratio_quality,va_bps_declared,source,source_ref,quality_note
+ARCA_VITA,MIP,2020,solo,701837,217557,97901,323.00,O,7,RelSolv_ArcaVita_2020,"E.1.3: EOF 701.837 T1UR; E.2 tabella indici: SCR 217.557, MCR 97.901, indice 3,23; VA EIOPA 7bps (testo E.2)",verified
+ARCA_VITA,MIP,2021,solo,771922,264833,119175,291.48%,E,3,RelSolv_ArcaVita_2021,"E.1 tabella OF ammissibili: 771.922 vs 701.837 (2020); SCR 264.833, MCR 119.175; VA 3bps (testo E.2)",verified
+ARCA_VITA,MIP,2022,solo,788825,252912,113810,311.90%,E,19,RelSolv_ArcaVita_2022,"E.1: EOF 788.825; SCR 252.912, MCR 113.810; VA 19bps (testo E.2) = VA EIOPA 31/12/2022 [cross-check OK]",verified
+ARCA_VITA,MIP,2023,solo,884819,378305,170237,233.89%,E,20,RelSolv_ArcaVita_2023,"E.1.3: EOF 884.819 (da 788.825); SCR 378.305 (+125.393), MCR 170.237; VA 20bps (testo E.2)",verified
+ARCA_VITA,MIP,2024,solo,956528,396117,178253,241.00,O,23,RelSolv_ArcaVita_2024,"E.1.3: EOF 956.528; tabella indici: SCR 396.117, MCR 178.253, indice 2,41; VA 23bps; breakdown BSCR 789.988",verified
+ARCA_VITA,MIP,2025,solo,1095439,430793,107698,254.00,O,14,RelSolv_ArcaVita_2025,"E.1.3: EOF 1.095.439; tabella indici: SCR 430.793, MCR 107.698, indice 2,54; VA 14bps; driver: rischio riscatto + spread",verified
+ISV_GROUP,SF,2020,group,,3957331,,n.d.,, ,SFCR_ISV_2020,"S.25 R0680 Group SCR 3.957.333 (add-on 30.692); R0690 OCR corrotto (22.4%); EOF non ricavabile -> n.d.",verified
+ISV_GROUP,SF,2021,group,,3914538,,n.d.,, ,SFCR_ISV_2021,"S.25 R0680 Group SCR 3.914.538 (add-on 176.175); R0690 OCR corrotto (2095); EOF non ricavabile -> n.d.",verified
+ISV_GROUP,SF,2022,group,9208916,4536557,,202.99%,E, ,SFCR_ISV_2022,"S.23 R0660 EOF 9.208.916; R0680 Group SCR 4.536.557; ratio [E-derived] (R0690 OCR corrotto)",verified
+ISV_GROUP,SF,2023,group,9761000,3954500,1910400,246.83%,E, ,SFCR_ISV_2023,"Testo E: EOF eligibili 9.761 mln (+552 vs 2022 = 9.209 [check OK]); SCR gruppo 3.954,5 mln; MCR 1.910,4; solvibilita' 5.807 mln (=9.761-3.954 [check OK]); ISV solo SCR 3.262 mln",verified
+ISPA_GROUP,SF,2024,group,9373700,3862000,1898000,242.72%,E, ,SFCR_ISPA_2024,"Testo E: EOF ammissibili 9.373,7 mln (T1UR 8.265,2 + T2 1.108,5); SCR gruppo 3.862,0 mln; MCR 1.898; R0200 3.861.976",verified
+ISPA_GROUP,SF,2025,group,10898521,4193635,,259.88%,E, ,SFCR_ISPA_2025,"S.23 R0560 EOF 10.898.521 (T1UR 9.269.774 + T2 1.628.747); testo: eligibili 10.899 mln (+1.525 vs 9.374 [check OK]); SCR R0200 4.193.635 ex add-on; LAC TP R0140 +5.734.690 (segno OCR da verificare)",verified
