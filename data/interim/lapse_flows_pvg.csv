@@ -1,0 +1,12 @@
+metric,entity,year,value,unit,tag,source_doc,source_section
+surrenders_paid,PVG_group,2022,5245.2,mln_eur,O,SFCR PVG 2022 (EN, doc 54ddfa37),5. Operating results - Settlements
+surrenders_paid,PVG_group,2021,4169.5,mln_eur,E-derived,SFCR PVG 2022 (EN, doc 54ddfa37),5. Operating results (-25.8% inverso su 2022)
+surrender_ratio_opening_provisions,PVG_group,2022,3.6,pct,O,SFCR PVG 2022 (EN, doc 54ddfa37),5. Operating results - Settlements
+surrender_ratio_opening_provisions,PVG_group,2021,3.1,pct,O,SFCR PVG 2022 (EN, doc 54ddfa37),5. Operating results - Settlements
+mass_lapse_reinsurance_premium,PVG_group,2022,21.5,mln_eur,O,SFCR PVG 2022 (EN, doc 54ddfa37),5. Operating results - Other net revenue
+scr_lapse_risk,PVG_group,2020,925628,th_eur,O,SFCR PVG 2021 (EN, doc b60d9d3a),Risk profile - Life underwriting risk
+scr_lapse_risk,PVG_group,2021,1540770,th_eur,O,SFCR PVG 2021 (EN, doc b60d9d3a),Risk profile - Life underwriting risk
+spread_btp_bund_avg,market,2021,135,bps,O-text,macro_vectors_alignment.md (Arca Vita SFCR),n/a
+spread_btp_bund_avg,market,2022,211,bps,O-text,macro_vectors_alignment.md (Arca Vita SFCR),n/a
+lapse_multiplier_gamma,PVG_group,2021_2022,19.7,per_unit_spread,E-model,derivation this dataset,see models/lapse_gamma_estimate_pvg.md
+lapse_multiplier_gamma_upper,PVG_group,2021_2022,30.2,per_unit_spread,E-model,derivation this dataset,see models/lapse_gamma_estimate_pvg.md
