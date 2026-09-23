@@ -1,0 +1,15 @@
+entity,year,scope,eof_scr,scr,mcr,solvency_ratio,solvency_ratio_mcr,notes,source,source_ref,quality
+PV_SOLO,2020,solo,11189369,3731931,1679369,299.83,570.50,"PV Vita S.p.A.; EOF = SCR x ratio (KPI: 11.189 mln)",SFCR_PVG_2020_EN,"E.2: SCR 3.731.931, MCR 1.679.369, ratio 299,83%/570,50%; testo A: EOF 11.189 mln",verified
+PV_SOLO,2021,solo,,4409170,1984121,288.00,,"PV solo: EOF 12.677 mln (arrotondato); ratio 288% nel testo (287,5% nel Collegio Sindacale 2022)",SFCR_PVG_2021_EN,"MCR table: SCR 4.409.170, MCR cap 1.984.121; testo: ratio da 300% a 288%, EOF 12.677 mln",verified
+PV_SOLO,2022,solo,12804895,4967417,2235338,257.78,494.55,"PV solo EOF = 12.805 mln (Collegio Sindacale); coincide col gruppo (AOF a livello solo)",RU_2022_IT,"Dati PV solo: SCR 4.967.417, MCR 2.235.338, ratio 257,78%; KPI comparativo SFCR 2023: EOF 12.804.895",verified
+PV_SOLO,2023,solo,14079290,4532196,2039488,310.65,604.53,"",SFCR_PVG_2023_EN,"Main KPI Solvency II (tabella A): EOF 14.079.290, SCR 4.532.196, MCR 2.039.488",verified
+PV_SOLO,2024,solo,13899090,4171784,1877303,333.17,647.16,"",SFCR_PVG_2024_EN,"Main KPI Solvency II (tabella A): EOF 13.899.090, SCR 4.171.784, MCR 1.877.303",verified
+PA_SOLO,2020,solo,277720,,,,311.31,,"Poste Assicura; SCR [E-derived] = EOF/3,1131 = 89.235",SFCR_PVG_2020_EN,"E.1.1 PA: EOF 277.720 (T1UR 277.720), ratio 311,31%",verified
+PA_SOLO,2021,solo,,,107798,,242.30,,"BSCR 107.798 + capital add-on ~25,4 mln; ratio [E-derived] da testo SFCR: -69pp vs 311,31% del 2020",SFCR_PVG_2021_EN,"Testo: 'solvency ratio decreased by around 69 percentage points'; S.25.01.21: BSCR 107.798",verified
+PA_SOLO,2023,solo,371389,158321,65193,234.58,569.68,"IVASS: procedimento add-on avviato con lettera 6/3/2024",SFCR_PVG_2023_EN,"E.1.1 PA: BOF 371.389; E.2: SCR 158.321, MCR 65.193, ratio 234,58%/569,68%",verified
+PA_SOLO,2024,solo,438856,186766,70127,234.98,625.80,"",SFCR_PVG_2024_EN,"Main KPI (tabella A): EOF 438.856, SCR 186.766, MCR 70.127, ratio 234,98%",verified
+NET_SOLO,2022,solo,33217,,,,,,"Net Insurance S.p.A. (pre-acquisizione gruppo PV); il gruppo Net Insurance autonomo: EOF 91.156, SCR 52.112, 174,92%",SFCR_PVG_2023_EN,"Tabella own funds comparativa 2022: EOF 33.217 (T1UR 27.141, T2 4.608, T3 1.467); Gruppo Net: SFCR Net 2022 upload",verified
+NET_SOLO,2023,solo,47909,20357,5089,235.34,,"",SFCR_PVG_2023_EN,"Own funds: EOF 47.909 (T1UR 43.126, T2 4.783); Coverage: SCR 20.357, MCR 5.089, ratio 235,34%",verified
+NET_SOLO,2024,solo,60172,,,,229.54,,"EOF 60.172 (T1UR 55.271, T2 4.901); SCR solo 2024 non estratto — ratio 229,54% da tabella entita' (da verificare R0680)",SFCR_PVG_2024_EN,"Own funds 31.12.2024: 60.172 vs 47.909 (2023); ratio 229,54% (estrazione precedente)",verified
+NET_LIFE,2023,solo,101628,50345,18735,201.63,,"Net Insurance Life S.p.A.; ratio [E-derived] = EOF/SCR",SFCR_PVG_2023_EN,"Own funds: EOF 101.628; Coverage: SCR 50.345, MCR 18.735 (S.28.02.01 NET INSURANCE LIFE)",verified
+NET_LIFE,2024,solo,,,,230.00,,"'SCR coverage ratio of 230%, slightly down from December 2023'; OF +12,3 mln, SCR +5,9 mln",SFCR_PVG_2024_EN,"Testo sezione Net Insurance Life: ratio 230%",verified
