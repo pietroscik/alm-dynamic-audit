@@ -1,0 +1,9 @@
+company,year,inv_r0070,bonds_total,govt_bonds,italy_govt,btp_share_of_govt,btp_share_of_fin_assets,source,source_ref,quality_note
+PV_GROUP,2021,,,91802630,,0.97,,SFCR_PVG_2021_EN,"Sezione C/D: govt bond 91.802.630, '97% issued by the Italian government' [O-text]",verified
+PV_GROUP,2023,,,88535811,,n.d.,,SFCR_PVG_2023_EN,"Tabella Financial Investments: govt 88.535.811; quota italiana non dichiarata nel testo estratto",verified_partial
+PV_GROUP,2024,,,89451819,,0.75,,SFCR_PVG_2024_EN,"Tabella composizione attivi (Solvency II value): govt 89.451.819; 'approximately 75% issued by the Italian government' [O-text]",verified
+ARCA_VITA,2022,,,,,n.d.,0.58,RelSolv_ArcaVita_2022,"Testo C: '91% titoli obbligazionari, 58% obbligazioni governative su PTF' [O-text]; tabella PTF troncata in OCR",verified_partial
+ISV_GROUP,2022,82819966,66125374,50460075,,n.d.,,SFCR_ISV_2022,"S.02.01 gruppo: R0070 82.819.966; Bonds R0130 66.125.374; Govt R0140 50.460.075 (60,9% inv.); testo: 63,2% su investimenti; paese non detailato",verified
+ISV_GROUP,2023,,,,,n.d.,0.626,SFCR_ISV_2023,"Testo: '62,6% titoli emessi da governi area euro o enti sovranazionali' (classe C) [O-text]",verified_partial
+ISPA_GROUP,2024,,69942412,48992527,41663651,0.85,0.4902,SFCR_ISPA_2024,"Tabella distribuzione investimenti gruppo: govt 48.992.527 (57,64%), di cui Italia 41.663.651 (49,02%); totale obbligazionario 69.942.412; duration portafoglio 6,45",verified
+ISPA_GROUP,2025,,,,53136228,42417924,0.798,0.4377,SFCR_ISPA_2025,"Tabella gruppo: govt 53.136.228 (54,83%), di cui Italia 42.417.924 (43,77%)",verified
