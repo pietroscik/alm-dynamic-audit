@@ -1,0 +1,7 @@
+date,r10_no_va_pct,va_bps,p10_dyn_eur,p10_static_eur,gap_static_minus_dyn_eur,tag
+2021-12-31,0.205,3,97.97,97.97,0.00,O
+2022-12-31,3.092,19,73.75,97.97,-24.22,O-curve/E-derived-repricing
+2023-01-31,2.764,17,76.14,97.97,-21.84,O-curve/E-derived-repricing
+2024-01-31,2.472,20,78.33,97.97,-19.64,O-curve/E-derived-repricing
+2025-01-31,2.333,20,79.40,97.97,-18.57,O-curve/E-derived-repricing
+2026-01-31,2.798,12,75.88,97.97,-22.09,O-curve/E-derived-repricing
