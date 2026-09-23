@@ -25,13 +25,15 @@ import polars as pl
 REPO = Path(__file__).resolve().parents[1]
 CURVES = REPO / "data" / "processed" / "rfr_curves_eur_2021_2022.csv"
 
-# [O] tracciati
+# [O] tracciati (EUR k)
 BEL_21, BEL_22 = 151_468_375, 128_350_704
 TP_21, TP_22 = 151_694_417, 133_029_385
 INV_21 = 150_845_818
 VA_TP_IMPACT = {"2021-12-31": 217_453, "2022-12-31": 565_931}
 # [E-derived]
 D_L, D_A = 5.30, 4.94
+
+K = 1_000_000  # EUR k -> mld EUR
 
 
 def main() -> None:
@@ -48,37 +50,42 @@ def main() -> None:
 
     print("\n== 2. Shifts reali vs 31/12/2021 (bps) ==")
     piv = df.pivot(on="maturity", index=["ref_date", "sheet"], values="rate").sort(["sheet", "ref_date"])
-    base = {s: piv.filter((pl.col("ref_date") == "2021-12-31") & (pl.col("sheet") == s)) for s in ("no_VA", "with_VA")}
+    mats = [str(m) for m in range(1, 21)]
+    base = {
+        s: {m: piv.filter((pl.col("ref_date") == "2021-12-31") & (pl.col("sheet") == s))[m][0] for m in mats}
+        for s in ("no_VA", "with_VA")
+    }
     shifts = []
     for date in ("2022-05-31", "2022-09-30", "2022-12-31"):
         for s in ("no_VA", "with_VA"):
             row = piv.filter((pl.col("ref_date") == date) & (pl.col("sheet") == s))
-            sh = [(row[m][0] - base[s][m][0]) * 10_000 for m in map(str, range(1, 21))]
-            shifts.append({"ref_date": date, "sheet": s, "n2": round(sh[1], 0), "n10": round(sh[9], 0),
-                           "n20": round(sh[19], 0), "avg": round(sum(sh) / 20, 1)})
+            sh = [(row[m][0] - base[s][m]) * 10_000 for m in mats]
+            shifts.append({
+                "ref_date": date, "sheet": s,
+                "n2_bps": round(sh[1]), "n10_bps": round(sh[9]), "n20_bps": round(sh[19]),
+                "avg_bps": round(sum(sh) / 20, 1),
+            })
     print(pl.DataFrame(shifts))
 
     print("\n== 3. Riprezzamento duration-based (sostituisce [E] +250bp) ==")
-    avg_sh_wva = next(r["avg"] for r in shifts if r["ref_date"] == "2022-12-31" and r["sheet"] == "with_VA") / 100
-    d_bel_rate = -D_L * BEL_21 * avg_sh_wva / 10_000 / 1_000     # mld EUR
-    d_assets = D_A * INV_21 * avg_sh_wva / 10_000 / 1_000        # mld EUR
-    d_bel_obs = (BEL_22 - BEL_21) / 1_000_000                    # mld EUR
-    residuo = d_bel_obs - d_bel_rate / 1000 if False else (BEL_22 - BEL_21) / 1_000 - d_bel_rate * 1000
-    print(f"shift medio with_VA 2021->2022 : +{avg_sh_wva:.3f} (decimale) = {avg_sh_wva*10:.0f} bp... uso bps: {avg_sh_wva*10000 if False else ''}")
-    print(f"dBEL solo-tasso [E-derived]    : {d_bel_rate:+.1f} mld EUR")
-    print(f"dBEL osservato [O]             : {d_bel_obs:+.1f} mld EUR")
-    print(f"residuo non-tasso              : {d_bel_obs - d_bel_rate:+.1f} mld EUR (runoff, nuovi affari, DPHB)")
-    print(f"dAssets [E-derived]            : {d_assets:+.1f} mld EUR")
-    print(f"contributo dinamico netto      : {d_assets + d_bel_rate:+.1f} mld EUR (era +1,41 con [E] +250bp)")
+    avg_bps = next(r["avg_bps"] for r in shifts if r["ref_date"] == "2022-12-31" and r["sheet"] == "with_VA")
+    dy = avg_bps / 10_000  # shift medio in decimale
+    d_bel_rate = -D_L * (BEL_21 / K) * dy        # mld EUR
+    d_assets = D_A * (INV_21 / K) * dy           # mld EUR
+    d_bel_obs = (BEL_22 - BEL_21) / K            # mld EUR
+    print(f"shift medio with_VA 2021->2022  : +{avg_bps:.1f} bps (vs [E] +250bp)")
+    print(f"dBEL solo-tasso [E-derived]      : {d_bel_rate:+.2f} mld EUR")
+    print(f"dBEL osservato [O]               : {d_bel_obs:+.2f} mld EUR")
+    print(f"residuo non-tasso                 : {d_bel_obs - d_bel_rate:+.2f} mld EUR (runoff, nuovi affari, DPHB)")
+    print(f"dAssets [E-derived]              : {d_assets:+.2f} mld EUR")
+    print(f"contributo dinamico netto         : {d_assets + d_bel_rate:+.2f} mld EUR (era +1,41 con [E] +250bp)")
 
     print("\n== 4. Duration implicite dal VA (finding DPHB) ==")
     for date, tp in (("2021-12-31", TP_21), ("2022-12-31", TP_22)):
-        d = VA_TP_IMPACT[date] / (tp * VA_BY_DATE(df, date) / 10_000)
-        print(f"{date}: impatto VA->0 TP {VA_TP_IMPACT[date]:,} su TP {tp:,} -> D implicita {d:.2f}")
-
-
-def VA_BY_DATE(df: pl.DataFrame, date: str) -> int:
-    return int(df.filter(pl.col("ref_date") == date)["va_bps"][0])
+        va_bps = int(df.filter(pl.col("ref_date") == date)["va_bps"][0])
+        d_impl = VA_TP_IMPACT[date] / (tp * va_bps / 10_000)
+        print(f"{date}: VA {va_bps} bps, impatto VA->0 su TP {VA_TP_IMPACT[date]:,} k su TP {tp:,} k -> D implicita {d_impl:.2f}")
+    print("\nD implicita 2021 (~4,8) coerente con D_L=5,30; 2022 (~2,2) NO: assorbimento DPHB.")
 
 
 if __name__ == "__main__":
