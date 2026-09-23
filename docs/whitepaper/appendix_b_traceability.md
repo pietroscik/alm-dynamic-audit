@@ -15,10 +15,14 @@
 | 9aaa979 | lapse_flows_pvg_ext.csv, lapse_gamma_stability_pvg.md, dynamic_engine.py | Estensione 2019-23, lag-1, floor | SFCR PVG 2023 exec, SFCR 2020, Arca 2022/2023 |
 | 9d101e9 | lapse_gamma_stability_pvg.md | Fix coerenza γ contemporaneo (−50,9) | — |
 | 7c17a8b | rfr_curves_eur_2023_2026.csv, backtest_static_vs_dynamic_2021_2026.csv, 09_projection_2023_2026.py, BACKTEST_2021_2026.md | Curve 2023-26 + backtest quinquennio | EIOPA RFR 2023-2026 (48b24eda, 658bee85, 39876327, 7250335f) |
-| e7b0f210 | docs/whitepaper/ (00_executive_summary, outline, chapters_3_5_draft) | Whitepaper v1 — sintesi e struttura | aggregato |
-| b71b839 | docs/whitepaper/ (chapter_1, chapter_2, chapter_6, chapter_7, appendix_b) | Capitoli accademici + matrice tracciabilità | aggregato |
-| 02edd20 | docs/whitepaper/ (appendix_a, appendix_c, appendix_d) | Data dictionary, riproducibilità, open items | aggregato |
-| (questo commit) | docs/whitepaper/appendix_b, INTEGRITY_REPORT.md | Aggiornamento matrice + audit integrità | aggregato |
+| e7b0f210 | docs/whitepaper/ (00, outline, ch.3-5) | Whitepaper v1 — sintesi e struttura | aggregato |
+| b71b839 | docs/whitepaper/ (ch.1, ch.2, ch.6, ch.7, app.B) | Capitoli accademici + matrice tracciabilità | aggregato |
+| 02edd20 | docs/whitepaper/ (app.A, app.C, app.D) | Data dictionary, riproducibilità, open items | aggregato |
+| 326a8cf | appendix_b, INTEGRITY_REPORT.md | Aggiornamento matrice + audit integrità | aggregato |
+| 9d66128 | chapter_6_panel.md, 00_executive_summary.md, data_dictionary_addendum_lapse_backtest.csv | Governance diffusione: §6.4 benchmark, ambito generalizzazione, dictionary addendum | aggregato |
+| (questo commit) | appendix_b | Estensione matrice a 9d66128 (regola di manutenzione) | aggregato |
 
 Regola di manutenzione: ogni nuovo commit con dati deve estendere questa matrice; ogni
 file con numeri deve riportare le colonne tag/source_doc/source_section (Appendice A).
+
+KNOWN_GAPS.md (questo commit) elenca i punti ciechi aperti: consultarlo prima della diffusione.
