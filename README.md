@@ -1,70 +1,69 @@
 # ALM Dynamic Audit
 
-## Obiettivo
-Misurare empiricamente in che misura un framework ALM statico — basato su
-ipotesi lineari e lapse rate costanti — sottostimi la vulnerabilita'
-economica e di liquidita' delle compagnie vita italiane rispetto a un
-motore dinamico mark-to-market con comportamento endogeno.
+Backtest statico vs dinamico su dati interamente pubblici e tracciati.
+Caso centrale: **Poste Vita Group 2021-2026**; pannello: Arca Vita, ISV, ISPA, Net Insurance.
 
-## Domanda di ricerca
-L'utilizzo di modelli semplificati e statici nell'assicurazione vita
-nasconde rischi sistemici (blind spots) in scenari di shock combinato
-(tassi al rialzo, allargamento dello spread, aumento dei riscatti)?
-Se si, di che entita' economica parliamo?
+## Tesi
 
-NOTA METODOLOGICA: il motore dinamico e' costruito per VERIFICARE se e in
-che misura le non linearita' producano vulnerabilita' aggiuntiva rispetto
-al benchmark statico. Il segno del delta e' un OUTPUT, non un presupposto.
+Il rialzo dei tassi 2022 e' un cambio di regime permanente, non un episodio transitorio.
+Un motore ALM statico (curva e comportamenti congelati al 31.12.2021) produce errori di
+repricing sistematici (-18,6 / -24,2 punti su portafoglio 10y, 2022-2026) e una sottostima
+strutturale dei riscatti. Le curve reali EIOPA invertono il segno del contributo dinamico
+rispetto a uno shift sintetico (+250bp): -1,8 mld € contro +1,41 mld €.
 
-## Architettura (layered design)
-1. Dati e ingestion (data/, src/data_loader.py, src/eiopa_loader.py,
-   src/data_quality.py): dati osservati 2021-2022 da SFCR Solvency II e
-   curve macro EIOPA. Pipeline raw -> interim -> processed.
-2. Core motori (src/):
-   - cashflow_builder.py: flussi sintetici coerenti con duration osservate
-   - static_engine.py: immunizzazione lineare ortodossa (benchmark)
-   - dynamic_engine.py: M2M nodo per nodo con lapse endogeno
-   - liquidity_engine.py: costi di liquidazione (fire sales)
-   - sps_calculator.py: punteggio composito esplorativo
-3. Frontend e audit (app/app.py): dashboard Streamlit.
+## Risultati chiave
 
-## Tracciabilita' dei dati (framework O/D/E)
-Ogni variabile e' classificata come:
-- O - Observed: dati di mercato o bilancio, con fonte (file, pagina, riga)
-- E - Estimated/Proxy: parametri ricostruiti con metodo dichiarato
-- D - Derived: output calcolato dai motori
-Il tracciato completo e' in data_dictionary.csv.
-REGOLA DI ACCETTAZIONE: un numero entra come [O] solo se e' tracciabile a
-(file, sezione/pagina, riga, colonna). Altrimenti e' [E] con metodo, o non entra.
+- **gamma (DPHB lapse) stimato su dati [O]**: 19,7 centrale, banda [19,7; 30,1]; lag-1 con
+  floor asimmetrico, validato out-of-sample sul 2023 (proiettato 4,06-4,40%, osservato 4,4%).
+- **Backtest 2021-2026**: gap statico-dinamico mai nullo dopo lo shock; nuovo allargamento
+  a gennaio 2026 (r10 = 2,80%).
+- **Isteresi duale**: VA EIOPA (3→19→17→20→20→12 bps) e riscatti seguono la stessa asimmetria.
+- **Pannello**: stesso shock (+307bps), direzioni opposte (PVG -32,2pp vs Arca +20,5pp):
+  l'impatto e' funzione della struttura, non dello shock.
 
-## Criterio di selezione del campione (dichiarato ex ante)
-- Compagnia 1: Poste Vita S.p.A. (Single SFCR, perimetro vita, standard
-  formula, distribuzione bancopostale, prevalenza Ramo I/III).
-- Compagnia 2: da registrare qui PRIMA dell'apertura dei PDF. Candidati:
-  Arca Vita (mid-cap bancassicurativo, profilo passivita' analogo) oppure
-  Intesa Sanpaolo Vita (large cap, disclosure di qualita').
-- Finestra: 2021-2022, frequenza annuale, scenario centrale: stress 2022.
+## Regola di accettazione dei dati
 
-## Stato dei dati
-ATTENZIONE: i CSV in data/processed/ sono un PILOTA SINTETICO per il
-dry-run della pipeline (flag quality_note = synthetic / approx).
-NON sono dati osservati. Prima del backtest definitivo vanno sostituiti
-con: (1) curve EIOPA dai file Excel ufficiali (eiopa_loader.py),
-(2) estrazione SFCR compilando data/interim/company_sfcr_interim.csv.
+Nessun numero entra come [O] (osservato) se non tracciato a (documento, sezione/QRT).
+Il resto e' [E]/[E-model] con formula dichiarata, oppure n.d. — mai interpolato.
+Dettagli: docs/whitepaper/appendix_a_data_dictionary.md, appendix_d_open_items.md.
 
-## Limitazioni dichiarate
-- I flussi di cassa contrattuali granulari non sono pubblici: vengono
-  approssimati con flussi sintetici coerenti con duration e aggregati
-  osservabili.
-- Curva a 10 nodi annui (MVP); finestra di liquidita' annua.
-- Lapse a un fattore; parametri gamma/haircut non calibrati (sensitivity
-  analysis richiesta).
-- La copertura riassicurativa del mass lapse (dichiarata da Poste Vita)
-  mitiga parte del blind spot stimato: il risultato e' un upper bound.
-- Il framework quantifica l'ordine di grandezza del blind spot sotto
-  assunzioni dichiarate; non misura una compagnia specifica.
+## Struttura
 
-## Esecuzione
+- `data/interim`, `data/processed` — CSV tracciati + SOURCES (7 addendum)
+- `models/` — lapse params, stima gamma, test di stabilita' [E-model]
+- `scripts/` — integrate_rfr_macro (dry-run default), verify_dataset, verify_new_datasets,
+  dynamic_engine (gamma band, lag-1, floor)
+- `src/` — moduli engine dell'app (dynamic_engine, static_engine, liquidity, sps...)
+- `app/app.py` — dashboard Streamlit
+- `notebooks/01-09` — analisi riproducibili
+- `docs/whitepaper/` — executive summary, capitoli 1-7, appendici A-D,
+  INTEGRITY_REPORT, matrice di tracciabilita' (Appendice B)
+- `KNOWN_GAPS.md` — punti ciechi aperti e loro stato
+
+## Quickstart
+
+```bash
 pip install -r requirements.txt
-pytest tests/
+python scripts/verify_dataset.py          # invarianti core
+python scripts/verify_new_datasets.py     # invarianti curve 2023-26 + backtest + lapse
+pytest tests/ -q
+python scripts/dynamic_engine.py --q0 3.5 --dspread-bps 76
 streamlit run app/app.py
+```
+
+## Attribuzione
+
+Poste Vita funge da benchmark di stress-test, non da unicum: l'architettura e' replicabile
+su qualsiasi portafoglio con SFCR pubblici; i parametri (gamma) vanno ri-stimati per
+portafoglio. Vedere docs/whitepaper/chapter_6_panel.md §6.4 e 00_executive_summary.md
+("Ambito di generalizzazione").
+
+## Licenza
+
+MIT — vedere LICENSE. I documenti sorgente (SFCR, curve EIOPA) NON sono ridistribuibili
+con il repo: la tracciabilita' resta nei file SOURCES con doc-ID (data/raw resta vuoto).
+
+## Citazione
+
+Maietta, P. (2026). *ALM Dynamic Audit: un motore dinamico contro la finzione della
+staticita'. Backtest 2021-2026 su dati pubblici tracciati.* Repository + whitepaper.

@@ -19,10 +19,13 @@
 | b71b839 | docs/whitepaper/ (ch.1, ch.2, ch.6, ch.7, app.B) | Capitoli accademici + matrice tracciabilità | aggregato |
 | 02edd20 | docs/whitepaper/ (app.A, app.C, app.D) | Data dictionary, riproducibilità, open items | aggregato |
 | 326a8cf | appendix_b, INTEGRITY_REPORT.md | Aggiornamento matrice + audit integrità | aggregato |
-| 9d66128 | chapter_6_panel.md, 00_executive_summary.md, data_dictionary_addendum_lapse_backtest.csv | Governance diffusione: §6.4 benchmark, ambito generalizzazione, dictionary addendum | aggregato |
-| (questo commit) | appendix_b | Estensione matrice a 9d66128 (regola di manutenzione) | aggregato |
+| 9d66128 | chapter_6_panel.md, 00_executive_summary.md, data_dictionary_addendum_lapse_backtest.csv | Governance diffusione: §6.4, ambito generalizzazione, dictionary addendum | aggregato |
+| c586ab3 | KNOWN_GAPS.md, appendix_b | Audit punti ciechi (14 item) | aggregato |
+| (questo commit) | LICENSE, README.md, .github/workflows/ci.yml, scripts/verify_new_datasets.py, appendix_d, appendix_b, KNOWN_GAPS, INTEGRITY_REPORT | Chiusura gap di forma: CI, licenza, README, invarianti dataset nuovi, limitazioni MET-1..7 | aggregato |
+
+Nota sui commit pre-616c60f (da fef609a a 7aec972, lista in INTEGRITY_REPORT.md §3):
+infrastruttura iniziale (scaffold, src/, app/, tests) — nessun contenuto dati, quindi
+nessuna riga di fonte richiesta dalla regola di manutenzione.
 
 Regola di manutenzione: ogni nuovo commit con dati deve estendere questa matrice; ogni
 file con numeri deve riportare le colonne tag/source_doc/source_section (Appendice A).
-
-KNOWN_GAPS.md (questo commit) elenca i punti ciechi aperti: consultarlo prima della diffusione.
