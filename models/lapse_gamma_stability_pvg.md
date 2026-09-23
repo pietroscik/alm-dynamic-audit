@@ -14,7 +14,7 @@
 | Transizione | Misura | Δs (bps) | m osservato | gamma implicito |
 |---|---|---|---|---|
 | 2021→2022 | ratio su riserve aperture (3,1→3,6) | +76 | 1,161 | **+19,7** |
-| 2022→2023 | frequenza su riserve medie (3,5→4,4) | -45 (anno civile) | 1,257 | **-47,7 (contemporaneo)** |
+| 2022→2023 | frequenza su riserve medie (3,5→4,4) | -45 (anno civile) | 1,257 | **-50,9 (contemporaneo)** |
 | 2022→2023 | specificazione lag-1 (risposta 2023 allo shock 2022) | +76 | 1,257 | **+30,1** |
 
 ## 3. Letture
