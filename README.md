@@ -1,5 +1,7 @@
 # ALM Dynamic Audit
 
+> 🚧 **Stato**: Work in Progress — struttura completa (src, test, KNOWN_GAPS), documentazione in consolidamento.
+
 Backtest statico vs dinamico su dati interamente pubblici e tracciati.
 Caso centrale: **Poste Vita Group 2021-2026**; pannello: Arca Vita, ISV, ISPA, Net Insurance.
 
@@ -36,7 +38,8 @@ Dettagli: docs/whitepaper/appendix_a_data_dictionary.md, appendix_d_open_items.m
 - `src/` — moduli engine dell'app (dynamic_engine, static_engine, liquidity, sps...)
 - `app/app.py` — dashboard Streamlit
 - `notebooks/01-09` — analisi riproducibili
-- `docs/whitepaper/` — executive summary, capitoli 1-7, appendici A-D,
+- `docs/whitepaper/` — executive summary, capitoli 1-7,
+ appendici A-D,
   INTEGRITY_REPORT, matrice di tracciabilita' (Appendice B)
 - `KNOWN_GAPS.md` — punti ciechi aperti e loro stato
 
