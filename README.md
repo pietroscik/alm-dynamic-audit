@@ -1,3 +1,5 @@
+> **Disclaimer**: This repository is an independent quantitative R&D prototype. It does not constitute a statutory actuarial valuation, regulatory advice, or a certified Solvency II/IFRS 17 model. — *Gli strumenti qui pubblicati sono prototipi di ricerca quantitativa indipendente: non costituiscono valutazioni attuariali ai fini di legge, pareri regolatori né modelli certificati Solvency II/IFRS 17.*
+
 # ALM Dynamic Audit
 
 > 🚧 **Stato**: Work in Progress — struttura completa (src, test, KNOWN_GAPS), documentazione in consolidamento.
